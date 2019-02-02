@@ -1,0 +1,126 @@
+.PAPER A4
+
+.TITLE  "A Sample Groff Document"
+.AUTHOR Pintman
+.PRINTSTYLE TYPESET  \" or TYPEWRITE
+.COLUMNS 1 12p  \" for multiple columns
+
+.START
+
+.HEADING 1 Introduction
+
+.PP
+Groff is an easy to use program for typesetting an the creation of
+documents. It can be controlled by several macros. In this document
+I will use the \f[I]mom\f[P] macro set. Its documentation is 
+installed in your Linux environment under
+
+.CODE
+/usr/share/doc/groff-base/html/mom/toc.html
+.CODE OFF
+
+
+.LP
+If unsure look into the last paragraphs of the man page 
+of \f[I]groff\f[P].
+This document can be generated with the following command: 
+.CODE
+pdfmom -e -t groff.mom > document.pdf.
+.CODE OFF
+
+
+The options -e and -t are used for preprocessing mathematical equations
+and table respectively.
+
+.HEADING 1 "Basic Formatting"
+
+Words can be formatted in \f[B]bold\f[P] or \f[I]italic\f[P] by 
+the inline macro \\f.
+
+.HEADING 1 Lists
+
+.PP
+Lists can easily be created using the LIST and ITEM macro.
+
+.LIST
+.ITEM 
+First item
+.ITEM 
+Second item
+.LIST OFF
+
+Now a list with numbers
+
+.LIST DIGIT
+.ITEM 
+First item
+.ITEM 
+Second item
+.LIST OFF
+
+.HEADING 1 "Images"
+
+.PP
+Images can be inserted if they are available as PDF documents. JPEG and
+PNG images can be converted with \f[I]ImageMagick\f[P]:
+
+
+.CODE
+convert image.jpg image.pdf
+.CODE OFF
+
+
+Then the image can be inserted with PDF_IMAGE macro. The dimension
+of the PDF must be given as parameter. It can be extracted from the
+PDF with
+.CODE 
+pdfinfo.
+.CODE OFF
+
+.PDF_IMAGE image.pdf 99p 99p LABEL "An avatar of me."
+
+.HEADING 1 "Tables"
+
+There is support for tables using the the tbl preprocessor and the .TS 
+and .TE macros. Each table must contain options (which are optional),
+formatting information and data.
+
+To enable table preprocessing the -t option must be given to the pdfmom 
+command.
+
+.FLOAT
+.TS
+ALLBOX CENTER;
+l l l
+c c r.
+x	f(x)=x^2	g(x)=x^3
+1	1	1
+2	4	8
+3	9	81
+.TE
+.FLOAT OFF
+
+It is generally to a good idea to put tables in FLOAT environments.
+
+.HEADING 1 Equations
+
+.PP
+Mathematical equations can be created with the eqn pre processor and
+the EQ and EN macros.
+You have to use the -e option for pdfmom to enable it. 
+
+.EQ
+x sup 2 = {1 + pi} over sqrt x
+.EN
+
+
+.HEADING 1 "German Umlauts"
+
+.PP
+German umlauts must be specified in a special notation
+\[:a] \[:A] \[:u] \[:U] \[:o] \[:O] \[ss]. Once you understand
+it's easy rememberable. The man page of groff_char will list
+the names of further symbols.
+
+If the document is saved with ISO-8859-1 encoding umlauts can be
+be entered directly: ö ä ü ...
