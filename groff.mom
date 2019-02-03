@@ -130,3 +130,11 @@ be entered directly: ö ä ü ...
 Another way to solve encoding problems and to support UTF8 encoding
 is the -k option. In this case the preconv tool is run before which
 will convert files to encodings that groff understands.
+
+.HEADING 1 "Further Information"
+
+Information about groff in general (e.g. 
+the \f[I]Troff User's Manual\f[P]) 
+and detailed documentation about
+the tbl and eqn pre-processors is available at the following URL
+\f[I]http://www.kohala.com/start/troff/troff.html\f[P].
