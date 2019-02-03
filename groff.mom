@@ -26,13 +26,14 @@ of \f[I]groff\f[P].
 This document can be generated with the following command: 
 
 .CODE
-pdfmom -e -t -k groff.mom > document.pdf.
+pdfmom -e -t -p -k groff.mom > document.pdf.
 .CODE OFF
 
 
-The options -e and -t are used for preprocessing mathematical equations
-and table respectively. The -k option allows for using german umlauts
-and will convert UTF8 encoded files to something that groff understands.
+The options are used for preprocessing mathematical equations (-e),
+tables (-t) and diagrams (-p for pictures) respectively. The -k option allows for using 
+german umlauts and will convert UTF8 encoded files to something that groff 
+understands.
 
 Look into the groff.mom file to get information about the structure of
 a groff document. The generated PDF on the other hand gives an impression
@@ -138,6 +139,25 @@ be entered directly: ö ä ü ...
 Another way to solve encoding problems and to support UTF8 encoding
 is the -k option. In this case the preconv tool is run before which
 will convert files to encodings that groff understands.
+
+.HEADING 1 "Diagrams"
+
+Diagrams can be created with the pic pre-processor and the PS and PE
+macros.
+
+.PS
+ellipse "document"
+arrow
+box "PIC"
+arrow
+box "TBL/EQN" "(optional)" dashed
+arrow
+box "GROFF"
+arrow
+ellipse "PDF"
+.PE
+
+During document generation the option -p must be used.
 
 .HEADING 1 "Further Information"
 
