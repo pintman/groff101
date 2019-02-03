@@ -35,6 +35,18 @@ tables (-t) and diagrams (-p for pictures) respectively. The -k option allows fo
 german umlauts and will convert UTF8 encoded files to something that groff 
 understands.
 
+A common workflow can integrate the 
+.CODE 
+entr
+.CODE OFF
+commandline tool which will
+run a program whenever the input file changes.
+
+.CODE
+ls groff.com | pdfmom -e -t -p -k groff.mom > document.pdf.
+.CODE OFF
+
+
 Look into the groff.mom file to get information about the structure of
 a groff document. The generated PDF on the other hand gives an impression
 of the generated document.
