@@ -43,6 +43,14 @@ of the generated document.
 Words can be formatted in \f[B]bold\f[P] or \f[I]italic\f[P] by 
 the inline macro \\f.
 
+To create external links one can use the PDF_WWW_LINK macro that comes
+with pdfmom:
+.PDF_WWW_LINK https://www.example.com
+
+A link with a
+.PDF_WWW_LINK https://www.example.com "different name"
+can be used as well.
+
 .HEADING 1 Lists
 
 .PP
