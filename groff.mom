@@ -52,6 +52,8 @@ a groff document. The generated PDF on the other hand gives an impression
 of the generated document.
 
 .HEADING 1 "Basic Formatting"
+.COMMENT Comments can be inserted with the comment macro
+\# or you can use the comment functionality of groff itself.
 
 Words can be formatted in \f[B]bold\f[P] or \f[I]italic\f[P] by 
 the inline macro \\f.
