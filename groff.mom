@@ -50,7 +50,7 @@ ls groff.com | pdfmom -e -t -p -k groff.mom > document.pdf.
 Look into the groff.mom file to get information about the structure of
 a groff document. The generated PDF on the other hand gives an impression
 of the generated document.
-
+.
 .HEADING 1 "Basic Formatting"
 .COMMENT Comments can be inserted with the comment macro
 \# or you can use the comment functionality of groff itself.
@@ -65,10 +65,8 @@ with pdfmom:
 A link with a
 .PDF_WWW_LINK https://www.example.com "different name"
 can be used as well.
-
+.
 .HEADING 1 Lists
-
-.PP
 Lists can easily be created using the LIST and ITEM macro.
 
 .LIST
@@ -86,9 +84,8 @@ First item
 .ITEM 
 Second item
 .LIST OFF
-
+.
 .HEADING 1 "Images"
-
 Images can be inserted if they are available as PDF documents. JPEG and
 PNG images can be converted with \f[I]ImageMagick\f[P]:
 .CODE
@@ -104,9 +101,8 @@ pdfinfo.
 .CODE OFF
 
 .PDF_IMAGE image.pdf 99p 99p LABEL "An avatar of me."
-
+.
 .HEADING 1 "Tables"
-
 There is support for tables using the the tbl preprocessor and the .TS 
 and .TE macros. Each table must contain options (which are optional),
 formatting information and data.
@@ -119,7 +115,7 @@ command.
 ALLBOX CENTER;
 l l l
 c c r.
-x	f(x)=x^2	g(x)=x^3
+x	f(x)=x*x	g(x)=x*x*x
 1	1	1
 2	4	8
 3	9	81
@@ -127,10 +123,8 @@ x	f(x)=x^2	g(x)=x^3
 .FLOAT OFF
 
 It is generally a good idea to put tables in FLOAT environments.
-
+.
 .HEADING 1 Equations
-
-.PP
 Mathematical equations can be created with the eqn pre-processor,
 which must be enabled during document generation with the -e option.
 Then you can use the EQ and EN macros.
@@ -138,10 +132,8 @@ Then you can use the EQ and EN macros.
 .EQ
 x sup 2 = {1 + pi} over sqrt x
 .EN
-
-
+.
 .HEADING 1 "German Umlauts"
-
 German umlauts can be specified using a special notation
 \[:a] \[:A] \[:u] \[:U] \[:o] \[:O] \[ss]. Once you understand it
 it can easily be remembered. The man page of groff_char will list
@@ -153,12 +145,11 @@ be entered directly: ö ä ü ...
 Another way to solve encoding problems and to support UTF8 encoding
 is the -k option. In this case the preconv tool is run before which
 will convert files to encodings that groff understands.
-
+.
 .HEADING 1 "Diagrams"
-
 Diagrams can be created with the pic pre-processor and the PS and PE
 macros.
-
+.
 .PS
 ellipse "document"
 arrow
@@ -170,13 +161,12 @@ box "GROFF"
 arrow
 ellipse "PDF"
 .PE
-
+.
 During document generation the option -p must be used.
-
+.
 .HEADING 1 "Further Information"
-
 Information about groff in general (e.g. 
 the \f[I]Troff User's Manual\f[P]) 
 and detailed documentation about
 the tbl and eqn pre-processors is available at the following URL
-\f[I]http://www.kohala.com/start/troff/troff.html\f[P].
+.PDF_WWW_LINK http://www.kohala.com/start/troff/troff.html
