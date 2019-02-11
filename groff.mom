@@ -114,13 +114,13 @@ command.
 
 .FLOAT
 .TS
-ALLBOX CENTER;
+ALLBOX CENTER TAB(@);
 l l l
 c c r.
-x	f(x)=x*x	g(x)=x*x*x
-1	1	1
-2	4	8
-3	9	81
+x @ f(x)=x² @ g(x)=x³
+1 @ 1 @ 1
+2 @ 4 @ 8
+3 @ 9 @ 81
 .TE
 .FLOAT OFF
 
